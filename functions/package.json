@@ -1,0 +1,38 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase serve --only functions -p 5002",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log",
+    "emulators:start": "kill-emulators-port && env-cmd -f .env.dev firebase emulators:start",
+    "emulators:start:import": "kill-emulators-port && env-cmd -f .env.dev firebase emulators:start --import=./2024-04-11T12:37:01_97447",
+    "current-functions-config": "firebase functions:config:get",
+    "gcloud:check:beUploadedFiles": "gcloud meta list-files-for-upload",
+    "dev-user": "firebase use dev-project-id && prfirebase deploy --only functions:triggerUser",
+    "prod-user": "firebase use prod-project-id && firebase deploy --only functions:triggerUserProd"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "admin.js",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "camelcase": "^6.3.0",
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^4.9.0",
+    "fs": "^0.0.1-security",
+    "glob": "^7.1.6",
+    "kill-emulators-port": "^1.0.4",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.1.0"
+  },
+  "private": true
+}
